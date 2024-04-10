@@ -33,6 +33,10 @@ Menu
                 self.getPassword()
                 self.encodedPassword = self.encode(self.password)
                 self.displayMenu()
+            case 2:
+                self.decode()
+                self.displayMenu()
+            
 
 
     def getPassword(self):
@@ -50,5 +54,13 @@ Menu
         for i in range(lengthPassword): #make dictionary to reorder string
             newString += str(int(stringPassword[i]) + 3)
         return int(newString)
+
+    def decode(self):
+        lengthPassword = len(str(self.encodedPassword))
+        stringPassword = str(self.encodedPassword)
+        newString = ""
+        for i in range(lengthPassword):
+            newString += str(int(stringPassword[i]) - 3)
+        print(f"The encoded password is {self.encodedPassword}, and the original password is {int(newString)}")
 
 instance = Main()
