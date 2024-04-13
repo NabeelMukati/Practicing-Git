@@ -3,12 +3,8 @@
 
 #first get the length of the string then deal with it after wards
 
-class Main:
-    def __init__(self):
-        self.displayMenu()
-    
-    def displayMenu(self):
-        print('''
+def displayMenu():
+    print('''
 Menu
 -------------
 1. Encode
@@ -33,34 +29,24 @@ Menu
                 self.getPassword()
                 self.encodedPassword = self.encode(self.password)
                 self.displayMenu()
-            case 2:
-                self.decode()
-                self.displayMenu()
-            
 
 
-    def getPassword(self):
-        while True:
-            try:
-                self.password = int(input("Please enter your password to encode: "))
-                break
-            except: 
-                print("invalid input")
+def getPassword():
+    while True:
+        try:
+            global password
+            password = int(input("Please enter your password to encode: "))
+            break
+        except: 
+            print("Invalid input")
 
-    def encode(self, password):
-        stringPassword = str(password)
-        lengthPassword = len(stringPassword)
-        newString = ""
-        for i in range(lengthPassword): #make dictionary to reorder string
-            newString += str(int(stringPassword[i]) + 3)
-        return int(newString)
 
-    def decode(self):
-        lengthPassword = len(str(self.encodedPassword))
-        stringPassword = str(self.encodedPassword)
-        newString = ""
-        for i in range(lengthPassword):
-            newString += str(int(stringPassword[i]) - 3)
-        print(f"The encoded password is {self.encodedPassword}, and the original password is {int(newString)}")
+def encode(password):
+    stringPassword = str(password)
+    lengthPassword = len(stringPassword)
+    newString = ""
+    for i in range(lengthPassword): 
+        newString += str(int(stringPassword[i]) + 3)
+    return int(newString)
 
 instance = Main()
