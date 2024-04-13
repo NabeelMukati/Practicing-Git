@@ -7,25 +7,6 @@ Menu
 3. Quit
               
 ''')
-<<<<<<< HEAD
-        self.captureInput()
-    def captureInput(self):
-        options = [1, 2, 3]
-        while True:
-            menuOptionSelected = input("Please enter an option: ")
-            try:
-                int(menuOptionSelected)
-                break
-            except:
-                continue
-        self.executeOption(int(menuOptionSelected))
-    def executeOption(self, option):
-        match option:
-            case 1:
-                self.getPassword()
-                self.encodedPassword = self.encode(self.password)
-                self.displayMenu()
-=======
     captureInput()
 
 
@@ -50,7 +31,6 @@ def executeOption(option):
     elif option == 2:
         decode()
         displayMenu()
->>>>>>> 76ad663 (bugged code works now.)
 
 
 def getPassword():
@@ -71,9 +51,6 @@ def encode(password):
         newString += str(int(stringPassword[i]) + 3)
     return int(newString)
 
-<<<<<<< HEAD
-instance = Main()
-=======
 
 def decode():
     global encodedPassword
@@ -87,5 +64,3 @@ def decode():
 
 if __name__ == '__main__':
     displayMenu()
-
->>>>>>> 76ad663 (bugged code works now.)
